@@ -4,7 +4,7 @@ from utils.request_utils import request_get
 
 def get_prs_info(paginate: bool=True) -> str:
     params = dict(
-        q='is:pr author:shubhamdhama archived:false sort:updated-desc is:closed created:>2018-03-27',
+        q='is:pr author:shubhamdhama archived:false created:>2018-03-27 sort:created-asc user:zulip is:closed',
         state='open',
     )
 
@@ -17,7 +17,7 @@ def get_prs_info(paginate: bool=True) -> str:
     data = request_get("https://api.github.com/search/issues", params=params)
     result = str()
     for item in data['items']:
-        result += '**{title}**\nLink: [#{number}]({html_url})\n\n'.format(
+        result += '{title}\nLink: [#{number}]({html_url})\n\n'.format(
             title=item['title'].strip(),
             number=item['number'],
             html_url=item['html_url']
