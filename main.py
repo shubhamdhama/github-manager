@@ -5,6 +5,7 @@ import requests
 
 from typing import Any, Dict
 
+from utils.commits import get_commits_info
 from utils.pulls import get_prs_info
 from utils.users import get_user_info
 
@@ -19,6 +20,8 @@ MAKE SURE YOU'VE SPECIFIED `$TEMP_FILE` env variable
 *No Auth required*
 (2) Get list of the PRs you've created
 Please change the query according to your use case
+*No Auth required*
+(3) Get the number of commits between a period.
 *No Auth required*
 
 Now `cat $TEMP_FILE`
@@ -51,3 +54,7 @@ if __name__ == '__main__':
     elif option == 2:
         data = get_prs_info()
         log_data(data)
+    elif option == 3:
+        data = get_commits_info()
+        print(len(data))
+        # log_json_data(data)
