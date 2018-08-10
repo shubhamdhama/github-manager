@@ -12,6 +12,8 @@ created this sample repo for all such examples.
 Following environment variable needs to be set:
 
 - `$TEMP_FILE`, which refers to a temporary file.
+- Simply run `python main.py`. (Note currently you many need to change code
+  to make custom query but soon I'll make that easy).
 
 ## Some curl commands to use some APIs from the terminal
 
@@ -31,3 +33,9 @@ curl -i -u shubhamdhama -H "X-GitHub-OTP:<OTP HERE>" -d '{"scopes": ["repo", "us
 # Get your GitHub info including some data which isn't available publically
 curl -H 'Authorization: token <TOKEN HERE>'  https://api.github.com/user
 ```
+
+## TODO
+
+- [ ] Improve UX.
+- [ ] Add more examples.
+- [ ] Improve README.md.
